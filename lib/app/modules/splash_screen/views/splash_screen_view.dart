@@ -1,4 +1,5 @@
 import 'package:bilalschool/app/utils/AppColor.dart';
+import 'package:bilalschool/app/utils/comman_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/splash_screen_controller.dart';
@@ -9,7 +10,7 @@ class SplashScreenView extends GetView<SplashScreenController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:  Theme.of(context).primaryColor, // dark blue
+      backgroundColor: Theme.of(context).primaryColor, // dark blue
       body: SafeArea(
         child: Column(
           children: [
@@ -48,29 +49,30 @@ class SplashScreenView extends GetView<SplashScreenController> {
             const Spacer(),
 
             /// BOTTOM ADDRESS
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: Column(
-                children: const [
-                  Text(
-                    "12 Khetwadi, Maulana Saukat Ali Road,",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.lightBlueAccent),
-                  ),
-                  Text(
-                    "Girgaon, Mumbai - 400004.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.lightBlueAccent),
-                  ),
-                  SizedBox(height: 6),
-                  Text(
-                    "Contact : 022 - 23810582",
-                    style: TextStyle(color: Colors.lightBlueAccent),
-                  ),
-                ],
-              ),
-            ),
-          
+            schoolAddress(),
+
+            // Padding(
+            //   padding: const EdgeInsets.only(bottom: 20),
+            //   child: Column(
+            //     children: const [
+            //       Text(
+            //         "12 Khetwadi, Maulana Saukat Ali Road,",
+            //         textAlign: TextAlign.center,
+            //         style: TextStyle(color: Colors.lightBlueAccent),
+            //       ),
+            //       Text(
+            //         "Girgaon, Mumbai - 400004.",
+            //         textAlign: TextAlign.center,
+            //         style: TextStyle(color: Colors.lightBlueAccent),
+            //       ),
+            //       SizedBox(height: 6),
+            //       Text(
+            //         "Contact : 022 - 23810582",
+            //         style: TextStyle(color: Colors.lightBlueAccent),
+            //       ),
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       ),

@@ -1,4 +1,6 @@
+import 'package:bilalschool/app/utils/comman_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../controllers/login_screen_controller.dart';
 
@@ -7,6 +9,12 @@ class LoginScreenView extends GetView<LoginScreenController> {
   // final _key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Color(0xFFE3E5F4), // same as scaffoldBackgroundColor
+        statusBarIconBrightness: Brightness.dark,
+      ),
+    );
     return Scaffold(
       // resizeToAvoidBottomInset: true,
       // backgroundColor: Theme.of(context).,
@@ -102,20 +110,30 @@ class LoginScreenView extends GetView<LoginScreenController> {
                         const SizedBox(height: 20),
 
                         /// PASSWORD
-                        _inputField(
-                          icon: Icons.key,
-                          ctrl: controller.passwordController,
-                          hint: "Password",
-                          obscure: true,
-                          validator: (value) {
-                            if (value == null || value.trim().isEmpty) {
-                              return "Password required";
-                            }
-                            if (value.length < 3) {
-                              return "Password too short";
-                            }
-                            return null;
-                          },
+                        Obx(
+                          () => _inputField(
+                            icon: Icons.key,
+                            ctrl: controller.passwordController,
+                            hint: "Password",
+                            isObscure: controller.isObscure,
+                            toggle: () {
+                              controller.isObscure.toggle();
+                            },
+                            // toggle: () {
+                            //   controller.isObscure.value
+                            //       ? Icon(Icons.visibility)
+                            //       : Icon(Icons.visibility_off);
+                            // },
+                            validator: (value) {
+                              if (value == null || value.trim().isEmpty) {
+                                return "Password required";
+                              }
+                              if (value.length < 3) {
+                                return "Password too short";
+                              }
+                              return null;
+                            },
+                          ),
                         ),
 
                         const SizedBox(height: 25),
@@ -144,19 +162,21 @@ class LoginScreenView extends GetView<LoginScreenController> {
                         const Spacer(),
 
                         /// FOOTER
-                        const Padding(
-                          padding: EdgeInsets.only(bottom: 20),
-                          child: Text(
-                            "12 Khetwadi, Maulana Saukat Ali Road,\n"
-                            "Girgaon, Mumbai - 400004.\n"
-                            "Contact : 022 - 23810582",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Color(0xFF4C79E0),
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
+                        schoolAddress(),
+
+                        // const Padding(
+                        //   padding: EdgeInsets.only(bottom: 20),
+                        //   child: Text(
+                        //     "12 Khetwadi, Maulana Saukat Ali Road,\n"
+                        //     "Girgaon, Mumbai - 400004.\n"
+                        //     "Contact : 022 - 23810582",
+                        //     textAlign: TextAlign.center,
+                        //     style: TextStyle(
+                        //       color: Color(0xFF4C79E0),
+                        //       fontSize: 16,
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -176,6 +196,7 @@ class LoginScreenView extends GetView<LoginScreenController> {
     required String hint,
     bool obscure = false,
     String? Function(String?)? validator,
+    IconData? suffixIcon,
     VoidCallback? toggle,
     RxBool? isObscure,
   }) {

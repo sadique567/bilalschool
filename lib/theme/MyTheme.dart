@@ -35,7 +35,7 @@ ThemeData lightTheme() => ThemeData(
     backgroundColor: Color(0xFFE3E5F4),
     foregroundColor: Colors.white,
     elevation: 0,
-    systemOverlayStyle: SystemUiOverlayStyle(
+    systemOverlayStyle: SystemUiOverlayStyle(      
       statusBarColor: Color(0xFFA51C30),
       statusBarIconBrightness: Brightness.light,
     ),
@@ -67,7 +67,7 @@ ThemeData lightTheme() => ThemeData(
   ),
 );
 
-// 🔹 DARK THEME
+// -----------------------🔹 DARK THEME -------------
 ThemeData darkTheme() => ThemeData(
   // textTheme: GoogleFonts.rajdhaniTextTheme(),
   colorScheme: const ColorScheme.dark(
