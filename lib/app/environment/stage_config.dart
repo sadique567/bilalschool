@@ -3,7 +3,7 @@
 class StageConfig implements BaseConfig {
   @override
   // TODO: implement baseApi
-  String get baseApi => "Base Url type here";
+  String get baseApi => "https://bilalschool.in/";
 
 
 }

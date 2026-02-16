@@ -1,3 +1,4 @@
+import 'package:bilalschool/app/utils/comman_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/dashboard_controller.dart';
@@ -42,7 +43,7 @@ class DashboardView extends GetView<DashboardController> {
                             style: TextStyle(
                               fontSize: 48,
                               fontWeight: FontWeight.bold,
-                              height: 0.7,
+                              height: 0.9,
                             ),
                           ),
                           SizedBox(height: 4),
@@ -114,16 +115,18 @@ class DashboardView extends GetView<DashboardController> {
               ),
 
               /// FOOTER
-              const Padding(
-                padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
-                child: Text(
-                  "12 Khetwadi, Maulana Saukat Ali Road,\n"
-                  "Girgaon, Mumbai - 400 004.\n"
-                  "Contact : 022 - 23810582",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Color(0xFF4C79E0), fontSize: 16),
-                ),
-              ),
+              schoolAddress(),
+
+              // const Padding(
+              //   padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+              //   child: Text(
+              //     "12 Khetwadi, Maulana Saukat Ali Road,\n"
+              //     "Girgaon, Mumbai - 400 004.\n"
+              //     "Contact : 022 - 23810582",
+              //     textAlign: TextAlign.center,
+              //     style: TextStyle(color: Color(0xFF4C79E0), fontSize: 16),
+              //   ),
+              // ),
             ],
           ),
         ),
@@ -161,8 +164,9 @@ class _MenuItem extends StatelessWidget {
               child: Image.asset(
                 imagePath,
                 fit: BoxFit.contain,
-                color: Colors.white,
-                colorBlendMode: BlendMode.srcIn,
+                // color: Colors.white,
+                height: 24,
+                // colorBlendMode: BlendMode.srcIn,
               ),
             ),
           ),

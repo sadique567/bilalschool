@@ -3,5 +3,5 @@
 class DevConfig implements BaseConfig {
   @override
   // TODO: implement baseApi
-  String get baseApi => "baseURl here";
+  String get baseApi => "https://bilalschool.in/";
 }

@@ -1,4 +1,4 @@
-package com.example.bilalschool
+package com.eschoolerp.bilalschool
 
 import io.flutter.embedding.android.FlutterActivity
 
