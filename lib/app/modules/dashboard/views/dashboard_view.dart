@@ -143,6 +143,12 @@ class DashboardView extends GetView<DashboardController> {
                       imagePath: "assets/icons/Result.png",
                       label: "RESULT",
                     ),
+                    IconButton(
+                      onPressed: () {
+                        controller.logoutUser();
+                      },
+                      icon: Icon(Icons.logout),
+                    ),
                   ],
                 ),
               ),
