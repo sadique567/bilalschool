@@ -1,3 +1,5 @@
+import 'package:bilalschool/app/modules/my_attendence/bindings/my_attendence_binding.dart';
+import 'package:bilalschool/app/modules/my_attendence/views/my_attendence_view.dart';
 import 'package:get/get.dart';
 
 import '../modules/dashboard/bindings/dashboard_binding.dart';
@@ -30,5 +32,111 @@ class AppPages {
       page: () => const DashboardView(),
       binding: DashboardBinding(),
     ),
+//  GetPage(
+//       name: _Paths.PARENT_DASHBOARD,
+//       page: () => ParentDashView(),
+//       binding: ParentDashbinding(),
+//     ),
+    // GetPage(
+    //   name: _Paths.SCHOOL_URL,
+    //   page: () => const SchoolUrlView(),
+    //   binding: SchoolUrlBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.USER_PROFILE,
+    //   page: () => const UserProfileView(),
+    //   binding: UserProfileBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.FEE_PAY,
+    //   page: () => const FeePayView(),
+    //   binding: FeePayBinding(),
+    // ),
+    GetPage(
+      name: _Paths.MY_ATTENDENCE,
+      page: () => const MyAttendenceView(),
+      binding: MyAttendenceBinding(),
+    ),
+    // GetPage(
+    //   name: _Paths.HOMEWORK_LIST,
+    //   page: () => const HomeworkListView(),
+    //   binding: HomeworkListBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.HOMEWORK_DETAILS,
+    //   page: () => HomeworkDetailsView(),
+    //   binding: HomeworkDetailsBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.LESSON_PLAN,
+    //   page: () => const LessonPlanView(),
+    //   binding: LessonPlanBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.SYLLABUS_STATUS,
+    //   page: () => const SyllabusStatusView(),
+    //   binding: SyllabusStatusBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.NOTICE_BOARD,
+    //   page: () => const NoticeBoardView(),
+    //   binding: NoticeBoardBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.TIME_LINE,
+    //   page: () => const TimeLineView(),
+    //   binding: TimeLineBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.EXAM_SCHEDULE,
+    //   page: () => const ExamScheduleView(),
+    //   binding: ExamScheduleBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.EXAM_SCHEDULE_DATA,
+    //   page: () => const ExamScheduleDataView(),
+    //   binding: ExamScheduleDataBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.HOLIDAY_LIST,
+    //   page: () => const HolidayListView(),
+    //   binding: HolidayListBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.STUDY_MATERIAL,
+    //   page: () => const StudyMaterialView(),
+    //   binding: StudyMaterialBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.SUBJECT_STATUS,
+    //   page: () => const SubjectStatusView(),
+    //   binding: SubjectStatusBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.CHAT_SCREEN,
+    //   page: () => const ChatScreenView(),
+    //   binding: ChatScreenBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.SMS_SCREEN,
+    //   page: () => const SmsScreenView(),
+    //   binding: SmsScreenBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.MY_DIARY,
+    //   page: () => const MyDairyView(),
+    //   binding: MyDairyBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.TIME_TABLE,
+    //   page: () => const TimeTableView(),
+    //   binding: TimeTableBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.HELP_SCREEN,
+    //   page: () => const HelpScreenView(),
+    //   binding: HelpScreenBinding(),
+    // ),
+
   ];
 }

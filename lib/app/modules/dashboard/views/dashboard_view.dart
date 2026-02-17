@@ -1,5 +1,8 @@
+import 'package:bilalschool/app/routes/app_pages.dart';
+import 'package:bilalschool/app/utils/SchoolWebView.dart';
 import 'package:bilalschool/app/utils/comman_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import '../controllers/dashboard_controller.dart';
 
@@ -75,38 +78,68 @@ class DashboardView extends GetView<DashboardController> {
                   childAspectRatio: 1.2,
                   children: [
                     _MenuItem(
+                      ontap: () {
+                        // EasyLoading.showInfo("Launch Soon");
+                        Get.toNamed(Routes.MY_ATTENDENCE);
+                      },
                       imagePath: "assets/icons/Attandance.png",
                       label: "ATTANDENCE",
                     ),
                     _MenuItem(
+                      ontap: () {
+                        EasyLoading.showInfo("Launch Soon");
+                      },
                       imagePath: "assets/icons/ClassWork.png",
                       label: "CLASS WORK",
                     ),
                     _MenuItem(
+                      ontap: () {
+                        EasyLoading.showInfo("Launch Soon");
+                      },
                       imagePath: "assets/icons/Announcement.png",
                       label: "ANNOUNCEMENT",
                     ),
                     _MenuItem(
+                      ontap: () {
+                        EasyLoading.showInfo("Launch Soon");
+                      },
                       imagePath: "assets/icons/Messages.png",
                       label: "MESSAGES",
                     ),
                     _MenuItem(
+                      ontap: () {
+                        EasyLoading.showInfo("Launch Soon");
+                      },
                       imagePath: "assets/icons/Dawnloan.png",
                       label: "DOWNLOAD",
                     ),
                     _MenuItem(
+                      ontap: () {
+                        EasyLoading.showInfo("Launch Soon");
+                      },
                       imagePath: "assets/icons/LeavApply.png",
                       label: "LEAVE APPLY",
                     ),
                     _MenuItem(
+                      ontap: () {
+                        EasyLoading.showInfo("Launch Soon");
+                      },
                       imagePath: "assets/icons/Fees.png",
                       label: "FEES",
                     ),
                     _MenuItem(
+                      ontap: () {
+                        Get.to(() => SchoolWebView());
+                        // openSchoolWebsite();
+                        // EasyLoading.showInfo("Launch Soon");
+                      },
                       imagePath: "assets/icons/BilaLogo.png",
                       label: "bilalschool.in",
                     ),
                     _MenuItem(
+                      ontap: () {
+                        EasyLoading.showInfo("Launch Soon");
+                      },
                       imagePath: "assets/icons/Result.png",
                       label: "RESULT",
                     ),
@@ -139,45 +172,53 @@ class _MenuItem extends StatelessWidget {
   // final IconData icon;
   final String imagePath;
   final String label;
+  final VoidCallback ontap;
 
-  const _MenuItem({required this.imagePath, required this.label});
+  const _MenuItem({
+    required this.imagePath,
+    required this.label,
+    required this.ontap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 70,
-          width: 70,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: const Color(0xFF0B0F4D), width: 3),
-          ),
-          child: Center(
-            child: Container(
-              height: 60,
-              width: 60,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: Color(0xFF0B0F4D),
-              ),
-              child: Image.asset(
-                imagePath,
-                fit: BoxFit.contain,
-                // color: Colors.white,
-                height: 24,
-                // colorBlendMode: BlendMode.srcIn,
+    return GestureDetector(
+      onTap: ontap,
+      child: Column(
+        children: [
+          Container(
+            height: 70,
+            width: 70,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: const Color(0xFF0B0F4D), width: 3),
+            ),
+            child: Center(
+              child: Container(
+                height: 60,
+                width: 60,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xFF0B0F4D),
+                ),
+                child: Image.asset(
+                  imagePath,
+                  fit: BoxFit.contain,
+                  // color: Colors.white,
+                  height: 24,
+                  // colorBlendMode: BlendMode.srcIn,
+                ),
               ),
             ),
           ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          label,
-          textAlign: TextAlign.center,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
-        ),
-      ],
+          const SizedBox(height: 8),
+          Text(
+            label,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
+          ),
+        ],
+      ),
     );
   }
 }

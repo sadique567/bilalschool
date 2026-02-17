@@ -15,7 +15,6 @@ void customSnackbar({
   bool isSuccess = true,
   bool isPositionAbove = true,
 }) {
-
   final bool hasTitle = title != null && title.trim().isNotEmpty;
   final bool hasMessage = message != null && message.trim().isNotEmpty;
 
@@ -31,16 +30,13 @@ void customSnackbar({
   }
 
   Get.snackbar(
-
     hasTitle && hasMessage ? title! : "",
 
     hasTitle && hasMessage ? message! : "",
 
-    snackPosition:
-        isPositionAbove ? SnackPosition.TOP : SnackPosition.BOTTOM,
+    snackPosition: isPositionAbove ? SnackPosition.TOP : SnackPosition.BOTTOM,
 
-    backgroundColor:
-        isSuccess ? Colors.green.shade600 : Colors.red.shade700,
+    backgroundColor: isSuccess ? Colors.green.shade600 : Colors.red.shade700,
 
     colorText: Colors.white,
 
@@ -73,16 +69,14 @@ void customSnackbar({
       mainText,
       style: TextStyle(
         fontSize: hasTitle && hasMessage ? 14 : 16,
-        fontWeight:
-            hasTitle && hasMessage ? FontWeight.normal : FontWeight.w500,
+        fontWeight: hasTitle && hasMessage
+            ? FontWeight.normal
+            : FontWeight.w500,
         color: Colors.white,
       ),
     ),
-
   );
-
 }
-
 
 Widget schoolAddress() {
   return Padding(
@@ -119,21 +113,24 @@ Widget schoolAddress() {
 }
 
 Future<void> makePhoneCall(String phoneNumber) async {
-
   final Uri uri = Uri.parse('tel:$phoneNumber');
 
   if (await launchUrl(uri, mode: LaunchMode.externalApplication)) {
-
     print("Call opened");
-
   } else {
-
     print("Could not launch");
-
   }
 }
 
-
+// Future<void> openSchoolWebsite() async {
+//   final Uri url = Uri.parse("https://bilalschool.in/");
+//   if (!await launchUrl(
+//     url,
+//     mode: LaunchMode.externalApplication, // chrome open karega
+//   )) {
+//     throw Exception('Could not launch $url');
+//   }
+// }
 
 
 
