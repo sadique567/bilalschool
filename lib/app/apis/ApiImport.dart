@@ -7,6 +7,8 @@ import 'package:bilalschool/app/apis/BaseApi.dart';
 import 'package:bilalschool/app/environment/environment.dart';
 import 'package:bilalschool/app/models/LoginModel.dart';
 import 'package:bilalschool/app/models/attendence_model.dart';
+import 'package:bilalschool/app/models/homework_get_model.dart';
+import 'package:bilalschool/app/models/notice_board_model.dart';
 import 'package:bilalschool/app/utils/comman_widget.dart';
 
 final String baseUrl = Environment().baseConfig.baseApi;
@@ -97,7 +99,7 @@ class ApiImport extends Api {
       return ApiResponse.failed(apiResponse.message);
     }
   }
-
+*/
   // --------------------HOMEWORK GET---------------
   @override
   Future<ApiResponse> getHomework(Map body) async {
@@ -109,7 +111,7 @@ class ApiImport extends Api {
       return ApiResponse.failed(apiResponse.message);
     }
   }
-
+/*
   @override
   Future<ApiResponse> uploadHomeWork(Map body) async {
     ApiResponse apiResponse = await api.postMethod(UPLOAD_HOMEWORK, body);
@@ -131,6 +133,7 @@ class ApiImport extends Api {
       return ApiResponse.failed(apiResponse.message);
     }
   }
+  */
 
   // -------------- NOTICE BOARD ----------------
   @override
@@ -143,7 +146,7 @@ class ApiImport extends Api {
       return ApiResponse.failed(apiResponse.message);
     }
   }
-
+/*
   // ----------------GET FEE Details -------------------
   @override
   Future<ApiResponse> feeDetails(Map body) async {

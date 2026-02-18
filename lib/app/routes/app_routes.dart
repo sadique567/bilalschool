@@ -27,6 +27,8 @@ abstract class Routes {
   static const MY_DIARY = _Paths.MY_DIARY;
   static const TIME_TABLE = _Paths.TIME_TABLE;
   static const HELP_SCREEN = _Paths.HELP_SCREEN;
+  static const ANNOUNCEMENT = _Paths.ANNOUNCEMENT;
+  static const CLASSWORK = _Paths.CLASSWORK;
 }
 
 abstract class _Paths {
@@ -55,4 +57,6 @@ abstract class _Paths {
   static const MY_DIARY = '/my-diary';
   static const TIME_TABLE = '/time-table';
   static const HELP_SCREEN = '/help-screen';
+  static const ANNOUNCEMENT = '/announcement';
+  static const CLASSWORK = '/classwork';
 }

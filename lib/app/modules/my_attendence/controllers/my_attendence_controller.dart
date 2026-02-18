@@ -49,11 +49,12 @@ class MyAttendenceController extends GetxController {
   /// 🔹 Fetch attendance data from API
   Future<void> getAttendenceAll() async {
     final DateFormat formatter = DateFormat("yyyy-MM-dd");
-
+    String stdId = prefs.getString(SharedPref.studentID).toString();
+    print("Attendence $stdId");
     Map<String, dynamic> body = {
       "from_date": formatter.format(fromDate.value),
       "to_date": formatter.format(toDate.value),
-      "student_id": prefs.getString(SharedPref.studentID),
+      "student_id": stdId,
     };
 
     ApiResponse apiResponse = await apiImport.getAttendence(body);

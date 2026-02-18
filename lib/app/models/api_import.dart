@@ -1,48 +1,58 @@
-import 'package:eschool_erp/app/Api/Api.dart';
-import 'package:eschool_erp/app/Api/api_path.dart';
-import 'package:eschool_erp/app/Api/base_api.dart';
-import 'package:eschool_erp/app/environment/environment.dart';
-import 'package:eschool_erp/app/model/attendence_model.dart';
-import 'package:eschool_erp/app/model/exam_schedule_details_model.dart';
-import 'package:eschool_erp/app/model/exam_schedule_model.dart';
-import 'package:eschool_erp/app/model/fees_model.dart';
-import 'package:eschool_erp/app/model/holiday_model.dart';
-import 'package:eschool_erp/app/model/homework_details_model.dart';
-import 'package:eschool_erp/app/model/homework_get_model.dart';
-import 'package:eschool_erp/app/model/homework_upload_model.dart';
-import 'package:eschool_erp/app/model/lessonplan_model.dart';
-import 'package:eschool_erp/app/model/login_model.dart';
-import 'package:eschool_erp/app/model/my_dairy_model.dart';
-import 'package:eschool_erp/app/model/notice_board_model.dart';
-import 'package:eschool_erp/app/model/studymaterial_model.dart';
-import 'package:eschool_erp/app/model/syllabus_status_module.dart';
-import 'package:eschool_erp/app/model/timeline_model.dart';
-import 'package:eschool_erp/app/utils/comman_widget.dart';
+// import 'package:eschool_erp/app/Api/Api.dart';
+// import 'package:eschool_erp/app/Api/api_path.dart';
+// import 'package:eschool_erp/app/Api/base_api.dart';
+// import 'package:eschool_erp/app/environment/environment.dart';
+// import 'package:eschool_erp/app/model/attendence_model.dart';
+// import 'package:eschool_erp/app/model/exam_schedule_details_model.dart';
+// import 'package:eschool_erp/app/model/exam_schedule_model.dart';
+// import 'package:eschool_erp/app/model/fees_model.dart';
+// import 'package:eschool_erp/app/model/holiday_model.dart';
+// import 'package:eschool_erp/app/model/homework_details_model.dart';
+// import 'package:eschool_erp/app/model/homework_get_model.dart';
+// import 'package:eschool_erp/app/model/homework_upload_model.dart';
+// import 'package:eschool_erp/app/model/lessonplan_model.dart';
+// import 'package:eschool_erp/app/model/login_model.dart';
+// import 'package:eschool_erp/app/model/my_dairy_model.dart';
+// import 'package:eschool_erp/app/model/notice_board_model.dart';
+// import 'package:eschool_erp/app/model/studymaterial_model.dart';
+// import 'package:eschool_erp/app/model/syllabus_status_module.dart';
+// import 'package:eschool_erp/app/model/timeline_model.dart';
+// import 'package:eschool_erp/app/utils/comman_widget.dart';
 // import 'package:http/http.dart' as http;
+
+import 'package:bilalschool/app/apis/Api.dart';
+import 'package:bilalschool/app/apis/ApisPath.dart';
+import 'package:bilalschool/app/apis/BaseApi.dart';
+import 'package:bilalschool/app/environment/environment.dart';
+import 'package:bilalschool/app/models/LoginModel.dart';
+import 'package:bilalschool/app/models/attendence_model.dart';
+import 'package:bilalschool/app/models/homework_get_model.dart';
+import 'package:bilalschool/app/models/notice_board_model.dart';
+import 'package:bilalschool/app/utils/comman_widget.dart';
 
 final String baseUrl = Environment().baseConfig.baseApi;
 
 class ApiImport extends Api {
-  // final api = ApiService(baseUrl);
+  final api = ApiService(baseUrl);
 
   // Singleton
   static final ApiImport instance = ApiImport._internal();
   factory ApiImport() => instance;
   ApiImport._internal();
 
-  late ApiService api;
+  // late ApiService api;
 
   // Call this when you get the real school URL
-  void initialize(String baseUrl) {
-    api = ApiService(baseUrl.trim());
-    print("ApiImport initialized with: $baseUrl");
-  }
+  // void initialize(String baseUrl) {
+  //   api = ApiService(baseUrl.trim());
+  //   print("ApiImport initialized with: $baseUrl");
+  // }
 
   // Call this on logout
-  void destroy() {
-    api.resetDio();
-    print("ApiImport destroyed - baseUrl & cookies cleared");
-  }
+  // void destroy() {
+  //   api.resetDio();
+  //   print("ApiImport destroyed - baseUrl & cookies cleared");
+  // }
 
   @override
   Future<ApiResponse> loginUser(Map body) async {
@@ -53,10 +63,11 @@ class ApiImport extends Api {
       return ApiResponse.success(response);
     } else {
       print("login Else Responsen ${apiResponse.message}");
-      customSnakbar(
-        isTrue: false,
+      customSnackbar(
+        isSuccess: false,
+        isPositionAbove: true,
         title: "Failed",
-        mesage: "Invalid username or password",
+        message: "Invalid username or password",
       );
       return ApiResponse.failed(apiResponse.message);
     }
@@ -84,6 +95,7 @@ class ApiImport extends Api {
     }
   }
 
+  /*
   @override
   Future<ApiResponse> lessonPlan(Map body) async {
     ApiResponse apiResponse = await api.postMethod(LESSON_PLAN, body);
@@ -106,7 +118,7 @@ class ApiImport extends Api {
       return ApiResponse.failed(apiResponse.message);
     }
   }
-
+*/
   // --------------------HOMEWORK GET---------------
   @override
   Future<ApiResponse> getHomework(Map body) async {
@@ -118,7 +130,7 @@ class ApiImport extends Api {
       return ApiResponse.failed(apiResponse.message);
     }
   }
-
+/*
   @override
   Future<ApiResponse> uploadHomeWork(Map body) async {
     ApiResponse apiResponse = await api.postMethod(UPLOAD_HOMEWORK, body);
@@ -140,7 +152,7 @@ class ApiImport extends Api {
       return ApiResponse.failed(apiResponse.message);
     }
   }
-
+*/
   // -------------- NOTICE BOARD ----------------
   @override
   Future<ApiResponse> noticeBoard(Map body) async {
@@ -152,7 +164,7 @@ class ApiImport extends Api {
       return ApiResponse.failed(apiResponse.message);
     }
   }
-
+/*
   // ----------------GET FEE Details -------------------
   @override
   Future<ApiResponse> feeDetails(Map body) async {
@@ -240,4 +252,7 @@ class ApiImport extends Api {
       return ApiResponse.failed(apiResponse.message);
     }
   }
+
+
+  */
 }

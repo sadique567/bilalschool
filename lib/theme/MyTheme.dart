@@ -32,11 +32,11 @@ ThemeData lightTheme() => ThemeData(
   brightness: Brightness.light,
 
   appBarTheme: const AppBarTheme(
-    backgroundColor: Color(0xFFE3E5F4),
+    backgroundColor: Color(0xFF05063C),
     foregroundColor: Colors.white,
     elevation: 0,
-    systemOverlayStyle: SystemUiOverlayStyle(      
-      statusBarColor: Color(0xFFA51C30),
+    systemOverlayStyle: SystemUiOverlayStyle(
+      statusBarColor: Color(0xFF05063C),
       statusBarIconBrightness: Brightness.light,
     ),
   ),

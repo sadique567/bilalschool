@@ -1,11 +1,15 @@
-import 'package:bilalschool/app/modules/my_attendence/bindings/my_attendence_binding.dart';
-import 'package:bilalschool/app/modules/my_attendence/views/my_attendence_view.dart';
 import 'package:get/get.dart';
 
+import '../modules/announcement/bindings/announcement_binding.dart';
+import '../modules/announcement/views/announcement_view.dart';
+import '../modules/classwork/bindings/classwork_binding.dart';
+import '../modules/classwork/views/classwork_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/login_screen/bindings/login_screen_binding.dart';
 import '../modules/login_screen/views/login_screen_view.dart';
+import '../modules/my_attendence/bindings/my_attendence_binding.dart';
+import '../modules/my_attendence/views/my_attendence_view.dart';
 import '../modules/splash_screen/bindings/splash_screen_binding.dart';
 import '../modules/splash_screen/views/splash_screen_view.dart';
 
@@ -24,7 +28,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.LOGIN_SCREEN,
-      page: () =>  LoginScreenView(),
+      page: () => LoginScreenView(),
       binding: LoginScreenBinding(),
     ),
     GetPage(
@@ -137,6 +141,15 @@ class AppPages {
     //   page: () => const HelpScreenView(),
     //   binding: HelpScreenBinding(),
     // ),
-
+    GetPage(
+      name: _Paths.ANNOUNCEMENT,
+      page: () => const AnnouncementView(),
+      binding: AnnouncementBinding(),
+    ),
+    GetPage(
+      name: _Paths.CLASSWORK,
+      page: () => const ClassworkView(),
+      binding: ClassworkBinding(),
+    ),
   ];
 }

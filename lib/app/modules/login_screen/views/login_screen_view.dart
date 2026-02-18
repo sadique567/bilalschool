@@ -9,13 +9,20 @@ class LoginScreenView extends GetView<LoginScreenController> {
   // final _key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        statusBarColor: Color(0xFFE3E5F4), // same as scaffoldBackgroundColor
-        statusBarIconBrightness: Brightness.dark,
-      ),
-    );
+    // SystemChrome.setSystemUIOverlayStyle(
+    //   const SystemUiOverlayStyle(
+    //     statusBarColor: Color(0xFFE3E5F4), // same as scaffoldBackgroundColor
+    //     statusBarIconBrightness: Brightness.dark,
+    //   ),
+    // );
     return Scaffold(
+        appBar: AppBar(
+        toolbarHeight: 0,
+        systemOverlayStyle: (const SystemUiOverlayStyle(
+          statusBarColor: Color(0xFFE3E5F4),
+          statusBarIconBrightness: Brightness.dark,
+        )),
+      ),
       // resizeToAvoidBottomInset: true,
       // backgroundColor: Theme.of(context).,
       body: SafeArea(

@@ -48,17 +48,17 @@ class LoginScreenController extends GetxController {
         // +++++++++ Parent Login +++++++++++++
         if (loginResponse.role.toLowerCase() == "parent") {
           EasyLoading.showToast("${loginResponse.role} Logedin ");
-          print("User role : ${loginResponse.role}");
-          print("Login controller ${loginResponse.toJson()}");
+          // print("User role : ${loginResponse.role}");
+          // print("Login controller ${loginResponse.toJson()}");
 
-          prefs.setBool(SharedPref.isLogin, true);
-          // prefs.setBool(SharedPref.hasUrl, true);
-          prefs.setString(SharedPref.role, loginResponse.role);
-          prefs.setString(SharedPref.userID, username);
-          prefs.setString(SharedPref.password, password);
-          print(
-            "student Id from Parent : ${prefs.getString(SharedPref.studentID)}",
-          );
+          // prefs.setBool(SharedPref.isLogin, true);
+          // // prefs.setBool(SharedPref.hasUrl, true);
+          // prefs.setString(SharedPref.role, loginResponse.role);
+          // prefs.setString(SharedPref.userID, username);
+          // prefs.setString(SharedPref.password, password);
+          // print(
+          //   "student Id from Parent : ${prefs.getString(SharedPref.studentID)}",
+          // );
           // savedevide({
           //   "user_id": prefs.getString(SharedPref.studentID),
           //   "fcm_token": NotificationService.token,
@@ -77,6 +77,7 @@ class LoginScreenController extends GetxController {
           prefs.setString(SharedPref.role, loginResponse.role);
           prefs.setString(SharedPref.userID, username);
           prefs.setString(SharedPref.password, password);
+          print("Student ID : ${loginResponse.loginData!.student!.studentId}");
           prefs.setString(
             SharedPref.studentID,
             loginResponse.loginData!.student!.studentId,
@@ -92,7 +93,7 @@ class LoginScreenController extends GetxController {
           Get.offAllNamed(Routes.DASHBOARD);
         }
       } else {
-        customSnackbar (isSuccess: false, title: loginResponse.message);
+        customSnackbar(isSuccess: false, title: loginResponse.message);
       }
     }
 

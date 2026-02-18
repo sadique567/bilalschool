@@ -1,6 +1,7 @@
 import 'package:bilalschool/app/utils/AppColor.dart';
 import 'package:bilalschool/app/utils/comman_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../controllers/splash_screen_controller.dart';
 
@@ -9,7 +10,20 @@ class SplashScreenView extends GetView<SplashScreenController> {
 
   @override
   Widget build(BuildContext context) {
+    //     SystemChrome.setSystemUIOverlayStyle(
+    //   const SystemUiOverlayStyle(
+    //     statusBarColor: Color(0xFF05063C), // same as scaffoldBackgroundColor
+    //     statusBarIconBrightness: Brightness.dark,
+    //   ),
+    // );
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+        systemOverlayStyle: (const SystemUiOverlayStyle(
+          statusBarColor: Color(0xFF05063C),
+          statusBarIconBrightness: Brightness.dark,
+        )),
+      ),
       backgroundColor: Theme.of(context).primaryColor, // dark blue
       body: SafeArea(
         child: Column(

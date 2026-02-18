@@ -2,6 +2,7 @@ import 'package:bilalschool/app/routes/app_pages.dart';
 import 'package:bilalschool/app/utils/SchoolWebView.dart';
 import 'package:bilalschool/app/utils/comman_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import '../controllers/dashboard_controller.dart';
@@ -12,6 +13,13 @@ class DashboardView extends GetView<DashboardController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+        systemOverlayStyle: (const SystemUiOverlayStyle(
+          statusBarColor: Color(0xFFE3E5F4),
+          statusBarIconBrightness: Brightness.dark,
+        )),
+      ),
       // backgroundColor: const Color(0xFFD9DBE7),
       body: SafeArea(
         child: Padding(
@@ -87,14 +95,16 @@ class DashboardView extends GetView<DashboardController> {
                     ),
                     _MenuItem(
                       ontap: () {
-                        EasyLoading.showInfo("Launch Soon");
+                        Get.toNamed(Routes.CLASSWORK);
+                        // EasyLoading.showInfo("Launch Soon");
                       },
                       imagePath: "assets/icons/ClassWork.png",
                       label: "CLASS WORK",
                     ),
                     _MenuItem(
                       ontap: () {
-                        EasyLoading.showInfo("Launch Soon");
+                        Get.toNamed(Routes.ANNOUNCEMENT);
+                        // EasyLoading.showInfo("Launch Soon");
                       },
                       imagePath: "assets/icons/Announcement.png",
                       label: "ANNOUNCEMENT",
@@ -143,6 +153,7 @@ class DashboardView extends GetView<DashboardController> {
                       imagePath: "assets/icons/Result.png",
                       label: "RESULT",
                     ),
+
                     IconButton(
                       onPressed: () {
                         controller.logoutUser();
