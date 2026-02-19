@@ -9,188 +9,196 @@ class LoginScreenView extends GetView<LoginScreenController> {
   // final _key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    // SystemChrome.setSystemUIOverlayStyle(
-    //   const SystemUiOverlayStyle(
-    //     statusBarColor: Color(0xFFE3E5F4), // same as scaffoldBackgroundColor
-    //     statusBarIconBrightness: Brightness.dark,
-    //   ),
-    // );
-    return Scaffold(
-        appBar: AppBar(
-        toolbarHeight: 0,
-        systemOverlayStyle: (const SystemUiOverlayStyle(
-          statusBarColor: Color(0xFFE3E5F4),
-          statusBarIconBrightness: Brightness.dark,
-        )),
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Color(0xFFE3E5F4), // yaha apna color
+        statusBarIconBrightness: Brightness.dark, // Android
+        statusBarBrightness: Brightness.light, // iOS
       ),
-      // resizeToAvoidBottomInset: true,
-      // backgroundColor: Theme.of(context).,
-      body: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            return SingleChildScrollView(
-              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-              child: ConstrainedBox(
-                constraints: BoxConstraints(minHeight: constraints.maxHeight),
-                child: IntrinsicHeight(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Column(
-                      children: [
-                        /// BISMILLAH
-                        const SizedBox(height: 15),
-                        Image.asset("assets/icons/Bismillah.png", height: 60),
-
-                        /// LOGO + TITLE
-                        const SizedBox(height: 50),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/icons/BilaLogo.png",
-                              height: 140,
+      child: Scaffold(
+        // appBar: AppBar(
+        //   toolbarHeight: 0,
+        //   systemOverlayStyle: (const SystemUiOverlayStyle(
+        //     statusBarColor: Color(0xFFE3E5F4),
+        //     statusBarIconBrightness: Brightness.dark,
+        //   )),
+        // ),
+        // resizeToAvoidBottomInset: true,
+        // backgroundColor: Theme.of(context).,
+        body: SafeArea(
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return SingleChildScrollView(
+                keyboardDismissBehavior:
+                    ScrollViewKeyboardDismissBehavior.onDrag,
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                  child: IntrinsicHeight(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        children: [
+                          /// BISMILLAH
+                          const SizedBox(height: 15),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 40),
+                            child: Image.asset(
+                              "assets/icons/Bismillah.png",
+                              height: 80,
                             ),
-                            const SizedBox(width: 10),
+                          ),
 
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
-                                    "BILAL SCHOOL",
-                                    maxLines: 2,
-                                    style: TextStyle(
-                                      fontSize: 54,
-                                      height: 0.9,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  SizedBox(height: 4),
-                                  Text(
-                                    "EDUCATION FOR HUMAN GREATNESS",
-                                    style: TextStyle(fontSize: 14),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-
-                        const SizedBox(height: 40),
-
-                        Form(
-                          key: controller.formKey,
-                          child: Column(
+                          /// LOGO + TITLE
+                          const SizedBox(height: 50),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              /// LOGIN TITLE
-                              const Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  "Login",
-                                  style: TextStyle(
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
+                              Image.asset(
+                                "assets/icons/BilaLogo.png",
+                                height: 140,
                               ),
+                              const SizedBox(width: 10),
 
-                              const SizedBox(height: 15),
-
-                              /// USERNAME
-                              _inputField(
-                                icon: Icons.person,
-                                ctrl: controller.userNameController,
-                                hint: "Username",
-                                validator: (value) {
-                                  if (value == null || value.trim().isEmpty) {
-                                    return "Username required";
-                                  }
-                                  if (value.length < 3) {
-                                    return "Username too short";
-                                  }
-                                  return null;
-                                },
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      "BILAL SCHOOL",
+                                      maxLines: 2,
+                                      style: TextStyle(
+                                        fontSize: 54,
+                                        height: 0.9,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(height: 4),
+                                    Text(
+                                      "EDUCATION FOR HUMAN GREATNESS",
+                                      style: TextStyle(fontSize: 14),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
-                        ),
-                        const SizedBox(height: 20),
 
-                        /// PASSWORD
-                        Obx(
-                          () => _inputField(
-                            icon: Icons.key,
-                            ctrl: controller.passwordController,
-                            hint: "Password",
-                            isObscure: controller.isObscure,
-                            toggle: () {
-                              controller.isObscure.toggle();
-                            },
-                            // toggle: () {
-                            //   controller.isObscure.value
-                            //       ? Icon(Icons.visibility)
-                            //       : Icon(Icons.visibility_off);
-                            // },
-                            validator: (value) {
-                              if (value == null || value.trim().isEmpty) {
-                                return "Password required";
-                              }
-                              if (value.length < 3) {
-                                return "Password too short";
-                              }
-                              return null;
-                            },
+                          const SizedBox(height: 40),
+
+                          Form(
+                            key: controller.formKey,
+                            child: Column(
+                              children: [
+                                /// LOGIN TITLE
+                                const Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "Login",
+                                    style: TextStyle(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+
+                                const SizedBox(height: 7),
+
+                                /// USERNAME
+                                _inputField(
+                                  icon: Icons.person,
+                                  ctrl: controller.userNameController,
+                                  hint: "Username",
+                                  validator: (value) {
+                                    if (value == null || value.trim().isEmpty) {
+                                      return "Username required";
+                                    }
+                                    if (value.length < 3) {
+                                      return "Username too short";
+                                    }
+                                    return null;
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
+                          const SizedBox(height: 5),
 
-                        const SizedBox(height: 25),
+                          /// PASSWORD
+                          Obx(
+                            () => _inputField(
+                              icon: Icons.key,
+                              ctrl: controller.passwordController,
+                              hint: "Password",
+                              isObscure: controller.isObscure,
+                              toggle: () {
+                                controller.isObscure.toggle();
+                              },
+                              // toggle: () {
+                              //   controller.isObscure.value
+                              //       ? Icon(Icons.visibility)
+                              //       : Icon(Icons.visibility_off);
+                              // },
+                              validator: (value) {
+                                if (value == null || value.trim().isEmpty) {
+                                  return "Password required";
+                                }
+                                if (value.length < 3) {
+                                  return "Password too short";
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
 
-                        /// BUTTON
-                        SizedBox(
-                          width: double.infinity,
-                          height: 55,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF0B0F4D),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
+                          const SizedBox(height: 25),
+
+                          /// BUTTON
+                          SizedBox(
+                            width: double.infinity,
+                            height: 55,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFF0B0F4D),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                              ),
+                              onPressed: () {
+                                controller.signinScreen();
+                              },
+                              child: const Text(
+                                "Sign In",
+                                style: TextStyle(fontSize: 20),
                               ),
                             ),
-                            onPressed: () {
-                              controller.signinScreen();
-                            },
-                            child: const Text(
-                              "Sign In",
-                              style: TextStyle(fontSize: 20),
-                            ),
                           ),
-                        ),
 
-                        const Spacer(),
+                          const Spacer(),
 
-                        /// FOOTER
-                        schoolAddress(),
+                          /// FOOTER
+                          schoolAddress(),
 
-                        // const Padding(
-                        //   padding: EdgeInsets.only(bottom: 20),
-                        //   child: Text(
-                        //     "12 Khetwadi, Maulana Saukat Ali Road,\n"
-                        //     "Girgaon, Mumbai - 400004.\n"
-                        //     "Contact : 022 - 23810582",
-                        //     textAlign: TextAlign.center,
-                        //     style: TextStyle(
-                        //       color: Color(0xFF4C79E0),
-                        //       fontSize: 16,
-                        //     ),
-                        //   ),
-                        // ),
-                      ],
+                          // const Padding(
+                          //   padding: EdgeInsets.only(bottom: 20),
+                          //   child: Text(
+                          //     "12 Khetwadi, Maulana Saukat Ali Road,\n"
+                          //     "Girgaon, Mumbai - 400004.\n"
+                          //     "Contact : 022 - 23810582",
+                          //     textAlign: TextAlign.center,
+                          //     style: TextStyle(
+                          //       color: Color(0xFF4C79E0),
+                          //       fontSize: 16,
+                          //     ),
+                          //   ),
+                          // ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );
