@@ -29,6 +29,10 @@ abstract class Routes {
   static const HELP_SCREEN = _Paths.HELP_SCREEN;
   static const ANNOUNCEMENT = _Paths.ANNOUNCEMENT;
   static const CLASSWORK = _Paths.CLASSWORK;
+  static const DOWNLOAD = _Paths.DOWNLOAD;
+  static const LEAVE_APPLY = _Paths.LEAVE_APPLY;
+  static const MESSAGES = _Paths.MESSAGES;
+  static const RESULT = _Paths.RESULT;
 }
 
 abstract class _Paths {
@@ -59,4 +63,8 @@ abstract class _Paths {
   static const HELP_SCREEN = '/help-screen';
   static const ANNOUNCEMENT = '/announcement';
   static const CLASSWORK = '/classwork';
+  static const DOWNLOAD = '/download';
+  static const LEAVE_APPLY = '/leave-apply';
+  static const MESSAGES = '/messages';
+  static const RESULT = '/result';
 }

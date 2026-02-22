@@ -117,28 +117,32 @@ class DashboardView extends GetView<DashboardController> {
                       ),
                       _MenuItem(
                         ontap: () {
-                          EasyLoading.showInfo("Launch Soon");
+                          Get.toNamed(Routes.MESSAGES);
+                          // EasyLoading.showInfo("Launch Soon");
                         },
                         imagePath: "assets/icons/Messages.png",
                         label: "MESSAGES",
                       ),
                       _MenuItem(
                         ontap: () {
-                          EasyLoading.showInfo("Launch Soon");
+                          Get.toNamed(Routes.DOWNLOAD);
+                          // EasyLoading.showInfo("Launch Soon");
                         },
                         imagePath: "assets/icons/Dawnloan.png",
                         label: "DOWNLOAD",
                       ),
                       _MenuItem(
                         ontap: () {
-                          EasyLoading.showInfo("Launch Soon");
+                          Get.toNamed(Routes.LEAVE_APPLY);
+                          // EasyLoading.showInfo("Launch Soon");
                         },
                         imagePath: "assets/icons/LeavApply.png",
                         label: "LEAVE APPLY",
                       ),
                       _MenuItem(
                         ontap: () {
-                          EasyLoading.showInfo("Launch Soon");
+                          Get.toNamed(Routes.FEE_PAY);
+                          // EasyLoading.showInfo("Launch Soon");
                         },
                         imagePath: "assets/icons/Fees.png",
                         label: "FEES",
@@ -154,7 +158,8 @@ class DashboardView extends GetView<DashboardController> {
                       ),
                       _MenuItem(
                         ontap: () {
-                          EasyLoading.showInfo("Launch Soon");
+                          Get.toNamed(Routes.RESULT);
+                          // EasyLoading.showInfo("Launch Soon");
                         },
                         imagePath: "assets/icons/Result.png",
                         label: "RESULT",

@@ -12,17 +12,17 @@ void main() async {
   await DependencyInjection.init();
   Environment().initConfig(Environment.DEVELOPMENT);
   Get.put(Mythemecontroller(), permanent: true);
-
+    
   // -----------FCM-----------
   // await Firebase.initializeApp();
   // // options: DefaultFirebaseOptions.currentPlatform
   // FirebaseMessaging.onBackgroundMessage(
   //   NotificationService.firebaseBackgroundHandler,
   // );
-
   // await NotificationService.init();
 
   runApp(const MyApp());
+  
 }
 
 class MyApp extends StatelessWidget {

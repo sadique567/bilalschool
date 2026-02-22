@@ -26,6 +26,7 @@ import 'package:bilalschool/app/apis/BaseApi.dart';
 import 'package:bilalschool/app/environment/environment.dart';
 import 'package:bilalschool/app/models/LoginModel.dart';
 import 'package:bilalschool/app/models/attendence_model.dart';
+import 'package:bilalschool/app/models/fees_model.dart';
 import 'package:bilalschool/app/models/homework_get_model.dart';
 import 'package:bilalschool/app/models/notice_board_model.dart';
 import 'package:bilalschool/app/utils/comman_widget.dart';
@@ -164,7 +165,6 @@ class ApiImport extends Api {
       return ApiResponse.failed(apiResponse.message);
     }
   }
-/*
   // ----------------GET FEE Details -------------------
   @override
   Future<ApiResponse> feeDetails(Map body) async {
@@ -176,6 +176,7 @@ class ApiImport extends Api {
       return ApiResponse.failed(apiResponse.message);
     }
   }
+/*
 
   @override
   Future<ApiResponse> timelineList(Map body) async {

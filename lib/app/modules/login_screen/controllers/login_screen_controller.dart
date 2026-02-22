@@ -48,17 +48,17 @@ class LoginScreenController extends GetxController {
         // +++++++++ Parent Login +++++++++++++
         if (loginResponse.role.toLowerCase() == "parent") {
           EasyLoading.showToast("${loginResponse.role} Logedin ");
-          // print("User role : ${loginResponse.role}");
-          // print("Login controller ${loginResponse.toJson()}");
+          print("User role : ${loginResponse.role}");
+          print("Login controller ${loginResponse.toJson()}");
 
-          // prefs.setBool(SharedPref.isLogin, true);
-          // // prefs.setBool(SharedPref.hasUrl, true);
-          // prefs.setString(SharedPref.role, loginResponse.role);
-          // prefs.setString(SharedPref.userID, username);
-          // prefs.setString(SharedPref.password, password);
-          // print(
-          //   "student Id from Parent : ${prefs.getString(SharedPref.studentID)}",
-          // );
+          prefs.setBool(SharedPref.isLogin, true);
+          // prefs.setBool(SharedPref.hasUrl, true);
+          prefs.setString(SharedPref.role, loginResponse.role);
+          prefs.setString(SharedPref.userID, username);
+          prefs.setString(SharedPref.password, password);
+          print(
+            "student Id from Parent : ${prefs.getString(SharedPref.studentID)}",
+          );
           // savedevide({
           //   "user_id": prefs.getString(SharedPref.studentID),
           //   "fcm_token": NotificationService.token,
@@ -69,8 +69,8 @@ class LoginScreenController extends GetxController {
             isSuccess: false,
             title: "Work in progress, Please wait",
           );
-          Get.back();
-          // Get.toNamed(Routes.PARENT_DASHBOARD);
+          // Get.back();
+          Get.toNamed(Routes.PARENT_DASHBOARD);
         } else {
           prefs.setBool(SharedPref.isLogin, true);
           // prefs.setBool(SharedPref.hasUrl, true);

@@ -1,3 +1,5 @@
+import 'package:bilalschool/app/modules/parent/parent_dashboard/parent_dash_binding/parent_dashbinding.dart';
+import 'package:bilalschool/app/modules/parent/parent_dashboard/parent_dash_view/parent_dash_view.dart';
 import 'package:get/get.dart';
 
 import '../modules/announcement/bindings/announcement_binding.dart';
@@ -6,10 +8,20 @@ import '../modules/classwork/bindings/classwork_binding.dart';
 import '../modules/classwork/views/classwork_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
+import '../modules/download/bindings/download_binding.dart';
+import '../modules/download/views/download_view.dart';
+import '../modules/fee_pay/bindings/fee_pay_binding.dart';
+import '../modules/fee_pay/views/fee_pay_view.dart';
+import '../modules/leave_Apply/bindings/leave_apply_binding.dart';
+import '../modules/leave_Apply/views/leave_apply_view.dart';
 import '../modules/login_screen/bindings/login_screen_binding.dart';
 import '../modules/login_screen/views/login_screen_view.dart';
+import '../modules/messages/bindings/messages_binding.dart';
+import '../modules/messages/views/messages_view.dart';
 import '../modules/my_attendence/bindings/my_attendence_binding.dart';
 import '../modules/my_attendence/views/my_attendence_view.dart';
+import '../modules/result/bindings/result_binding.dart';
+import '../modules/result/views/result_view.dart';
 import '../modules/splash_screen/bindings/splash_screen_binding.dart';
 import '../modules/splash_screen/views/splash_screen_view.dart';
 
@@ -36,11 +48,11 @@ class AppPages {
       page: () => const DashboardView(),
       binding: DashboardBinding(),
     ),
-//  GetPage(
-//       name: _Paths.PARENT_DASHBOARD,
-//       page: () => ParentDashView(),
-//       binding: ParentDashbinding(),
-//     ),
+    GetPage(
+      name: _Paths.PARENT_DASHBOARD,
+      page: () => ParentDashView(),
+      binding: ParentDashbinding(),
+    ),
     // GetPage(
     //   name: _Paths.SCHOOL_URL,
     //   page: () => const SchoolUrlView(),
@@ -51,11 +63,11 @@ class AppPages {
     //   page: () => const UserProfileView(),
     //   binding: UserProfileBinding(),
     // ),
-    // GetPage(
-    //   name: _Paths.FEE_PAY,
-    //   page: () => const FeePayView(),
-    //   binding: FeePayBinding(),
-    // ),
+    GetPage(
+      name: _Paths.FEE_PAY,
+      page: () => const FeePayView(),
+      binding: FeePayBinding(),
+    ),
     GetPage(
       name: _Paths.MY_ATTENDENCE,
       page: () => const MyAttendenceView(),
@@ -150,6 +162,26 @@ class AppPages {
       name: _Paths.CLASSWORK,
       page: () => const ClassworkView(),
       binding: ClassworkBinding(),
+    ),
+    GetPage(
+      name: _Paths.DOWNLOAD,
+      page: () => const DownloadView(),
+      binding: DownloadBinding(),
+    ),
+    GetPage(
+      name: _Paths.LEAVE_APPLY,
+      page: () => const LeaveApplyView(),
+      binding: LeaveApplyBinding(),
+    ),
+    GetPage(
+      name: _Paths.MESSAGES,
+      page: () => const MessagesView(),
+      binding: MessagesBinding(),
+    ),
+    GetPage(
+      name: _Paths.RESULT,
+      page: () => const ResultView(),
+      binding: ResultBinding(),
     ),
   ];
 }
